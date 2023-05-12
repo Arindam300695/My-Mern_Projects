@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 // base url
-const baseUrl = 'http://localhost:8080';
+const baseUrl = 'https://mern-food-delivery-app-dy3f.onrender.com';
 
 const AddFoodItem = () => {
     const navigate = useNavigate();

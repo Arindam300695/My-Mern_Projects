@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 // base url
-const baseUrl = 'http://localhost:8080';
+const baseUrl = 'https://mern-food-delivery-app-dy3f.onrender.com';
 
 const Login = () => {
   const navigate = useNavigate();

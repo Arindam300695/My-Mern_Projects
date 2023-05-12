@@ -15,7 +15,7 @@ import Button from 'react-bootstrap/esm/Button';
 
 
 // base url
-const baseUrl = 'http://localhost:8080';
+const baseUrl = 'https://mern-food-delivery-app-dy3f.onrender.com';
 
 const Home = () => {
     const product = useSelector(state => state.foodItemSlice)
@@ -66,7 +66,7 @@ const Home = () => {
                 <Carousels />
 
                 <div className='bg-danger text-white mt-2 mb-2 fw-bolder fs-3'>
-                    <Form className='d-flex justify-content-evenly align-items-center  w-50 m-auto' >
+                    <Form style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", fontSize: "1rem" }}  >
                         <Form.Check checked={checkedVeg} onChange={handleChange} name="foodtype" label="Veg" value="veg" type="checkbox" aria-label="radio 1" />
                         <Form.Check checked={checkedNonVeg} onChange={handleChange} name="foodtype" label="Non Veg" value="non veg" type="checkbox" aria-label="radio 1" />
                         <Button className='m-2' onClick={submitHandler}> Filter </Button>
