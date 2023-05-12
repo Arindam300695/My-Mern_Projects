@@ -9,6 +9,8 @@ import { MdDeleteForever } from 'react-icons/md';
 import { deleteProductFromCart, emptyCart } from '../redux/foodItemSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -52,20 +54,25 @@ const Cart = () => {
                 :
                 <div style={{ minHeight: "80vh" }} className='mb-2'>
                     <Stack gap={3}>
-                        {cart.map(item => (
-                            <div key={item.id} className="bg-warning border d-flex jsuti-content-evenly align-items-center gap-2">
-                                <Image src={item.image[0].url} roundedCircle width="150px" />
-                                <h3>{item.name}</h3>
-                                <div>Quantity : <h5 style={{ display: "inline" }}>{item.productQuantity}</h5></div>
-                                <div>Size : <h5 style={{ display: "inline" }}>{item.productDisSize}</h5></div>
-                                <div>Total Price : <h5 style={{ display: "inline" }}>{item.totalPrice[0]}</h5></div>
-                                <MdDeleteForever onClick={() => { deleteProductHandler(item.id) }} className='fw-bolder text-danger' style={{ fontSize: "3rem" }} />
-                            </div>
-                        ))}
-                        <div className="bg-warning border d-flex justify-content-evenly p-3">
-                            <h3 className='text-center'>Total Amount to be paid:{price}</h3>
-                            <Button onClick={checkoutHandler}>Checkout</Button>
-                        </div>
+                        <Row>
+                            <Col xs={12}>
+                                {cart.map(item => (
+                                    <div key={item.id} style={{ textAlign: "center", width: "18rem" }} className='bg-dark text-white m-auto' >
+                                        <Image src={item.image[0].url} roundedCircle width="150px" />
+                                        <h3>{item.name}</h3>
+                                        <div>Quantity : <h5 style={{ display: "inline" }}>{item.productQuantity}</h5></div>
+                                        <div>Size : <h5 style={{ display: "inline" }}>{item.productDisSize}</h5></div>
+                                        <div>Total Price : <h5 style={{ display: "inline" }}>{item.totalPrice[0]}</h5></div>
+                                        <MdDeleteForever onClick={() => { deleteProductHandler(item.id) }} className='fw-bolder text-danger' style={{ fontSize: "3rem" }} />
+                                        <hr />
+                                    </div>
+                                ))}
+                                <div className="bg-warning border d-flex justify-content-evenly p-3">
+                                    <h3 className='text-center'>Total Amount to be paid:{price}</h3>
+                                    <Button onClick={checkoutHandler}>Checkout</Button>
+                                </div>
+                            </Col>
+                        </Row>
                     </Stack>
                 </div>}
             <ToastContainer />

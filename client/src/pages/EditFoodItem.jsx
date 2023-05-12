@@ -11,6 +11,9 @@ import { addProduct, deleteItem, editItem } from '../redux/foodItemSlice';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 // base url
 const baseUrl = 'https://mern-food-delivery-app-dy3f.onrender.com';
@@ -68,16 +71,20 @@ const EditFoodItem = () => {
             <div style={{ minHeight: "80vh", margin: "1rem" }}>
                 <Container fluid>
                     <Stack gap={3}>
-                        {foodItem.map(item => (
-                            <div key={item._id} className="bg-warning border p-3 col-xs-auto" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "1rem" }}>
-                                <h4>
-                                    {item.name}
-                                </h4>
-                                <Image src={item.image[0].url} roundedCircle width="100px" />
-                                <BiEdit onClick={() => { editHandler(item._id) }} className='fs-3 text-danzer' />
-                                <RiDeleteBin2Line onClick={() => { deleteHandler(item._id) }} className='fs-3 text-danzer' />
-                            </div>
-                        ))}
+                        <Row m={1}>
+                            {foodItem.map(item => (
+                                <Col>
+                                    <div key={item._id} className="bg-warning border p-3 text-center">
+                                        <h4>
+                                            {item.name}
+                                        </h4>
+                                        <Image src={item.image[0].url} roundedCircle width="100px" />
+                                        <BiEdit onClick={() => { editHandler(item._id) }} className='fs-3 text-danzer' />
+                                        <RiDeleteBin2Line onClick={() => { deleteHandler(item._id) }} className='fs-3 text-danzer' />
+                                    </div>
+                                </Col>
+                            ))}
+                        </Row>
                     </Stack>
                 </Container>
 
