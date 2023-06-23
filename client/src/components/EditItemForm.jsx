@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import { ToastContainer, toast } from "react-toastify";
 
 // base url
-const baseUrl = "http://localhost:8080";
+const baseUrl = "https://food-delivery-nybp.onrender.com";
 
 const EditItemForm = () => {
     const navigate = useNavigate();

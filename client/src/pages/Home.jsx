@@ -13,7 +13,7 @@ import { addProduct, filterVegProduct } from "../redux/foodItemSlice";
 import Button from "react-bootstrap/esm/Button";
 
 // base url
-const baseUrl = "http://localhost:8080";
+const baseUrl = "https://food-delivery-nybp.onrender.com";
 
 const Home = () => {
     const product = useSelector((state) => state.foodItemSlice);
