@@ -23,7 +23,7 @@ app.listen(process.env.port || 8080, async (error) => {
     if (error) {
         console.log(error);
     } else {
-        await connect();
+        connect();
         console.log(
             `server is listening on http://localhost:${
                 process.env.port || 8080
