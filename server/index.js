@@ -1,10 +1,9 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
-const mongoose = require('mongoose');
-const authRouter = require('./routes/authRouter');
-const foodRouter = require('./routes/foodRouter');
-
+const mongoose = require("mongoose");
+const authRouter = require("./routes/authRouter");
+const foodRouter = require("./routes/foodRouter");
 
 const app = express();
 
@@ -16,16 +15,20 @@ app.use(express.urlencoded({ extended: "true" }));
 // connecting to the database
 const connect = async () => {
     await mongoose.connect(process.env.db_url);
-    console.log("connection established with database successfully")
+    console.log("connection established with database successfully");
 };
 
 // listening to the server
-app.listen(process.env.port || 8080, (error) => {
+app.listen(process.env.port || 8080, async (error) => {
     if (error) {
         console.log(error);
     } else {
-        connect();
-        console.log(`server is listening on http://localhost:${process.env.port || 8080}`);
+        await connect();
+        console.log(
+            `server is listening on http://localhost:${
+                process.env.port || 8080
+            }`
+        );
     }
 });
 
